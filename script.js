@@ -12,7 +12,6 @@ function moveLeft(){
         character.style.left = left - 2 + "px";
     }
 }
-
 function moveRight(){
     var left = 
     parseInt(window.getComputedStyle(character).getPropertyValue("left"));
@@ -20,7 +19,6 @@ function moveRight(){
         character.style.left = left + 2 + "px";
     }
 }
-
 document.addEventListener("keydown", event => {
     if(both==0){
         both++;
@@ -47,13 +45,12 @@ var blocks = setInterval(function(){
         parseInt(window.getComputedStyle(holeLast).getPropertyValue("top"));
     }
     if(blockLastTop<400||counter==0){
-
         var block = document.createElement("div");
         var hole = document.createElement("div");
         block.setAttribute("class", "block");
-        hole.setAtrribute("class", "hole");
+        hole.setAttribute("class", "hole");
         block.setAttribute("id", "block"+counter);
-        hole.setAtrribute("id", "hole"+counter);
+        hole.setAttribute("id", "hole"+counter);
         block.style.top = blockLastTop + 100 + "px";
         hole.style.top = holeLastTop + 100 + "px";
         var random = Math.floor(Math.random() * 360);
@@ -69,18 +66,18 @@ var blocks = setInterval(function(){
     parseInt(window.getComputedStyle(character).getPropertyValue("left"));
     var drop = 0;
     if(characterTop <= 0){
-        alert("Game over. Score: " +(counter-9));
+        alert("Game over. Score: "+(counter-9));
         clearInterval(blocks);
         location.reload();
     }
-
-
     for(var i = 0; i < currentBlocks.length;i++){
         let current = currentBlocks[i];
         let iblock = document.getElementById("block"+current);
         let ihole = document.getElementById("hole"+current);
         let iblockTop = 
-        parseFloat(window.getComputedStyle(iblock).getPropertyValue("top"));
+        parseInt(window.getComputedStyle(iblock).getPropertyValue("top"));
+        let iholeLeft = 
+        parseInt(window.getComputedStyle(ihole).getPropertyValue("left"));
         iblock.style.top = iblockTop - 0.5 + "px";
         ihole.style.top = iblockTop - 0.5 + "px";
         if(iblockTop < -20){
